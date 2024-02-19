@@ -1,0 +1,16 @@
+/*
+Example 1:
+Input: command = "G()(al)"
+Output: "Goal"
+Explanation: The Goal Parser interprets the command as follows:
+G -> G
+() -> o
+(al) -> al
+The final concatenated result is "Goal".
+*/
+class Solution {
+    public String interpret(String command) {
+        command = command.replace("(al)","al").replace("()","o");        
+        return command;
+    }
+}
