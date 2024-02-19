@@ -1,0 +1,26 @@
+/*
+Example 1:
+Input: items = [["phone","blue","pixel"],["computer","silver","lenovo"],["phone","gold","iphone"]], ruleKey = "color", ruleValue = "silver"
+Output: 1
+Explanation: There is only one item matching the given rule, which is ["computer","silver","lenovo"].
+*/
+class Solution {
+    public int method1(List<List<String>> items, String ruleKey, String ruleValue) {
+        int count=0;
+        int ch = ruleKey.equals("type") ? 0 : ruleKey.equals("color") ? 1 : ruleKey.equals("name") ? 2 : -1;
+        for(int i=0;i<items.size();i++){
+            if(items.get(i).get(ch).equals(ruleValue))
+                count++;
+        }
+        return count;
+    }
+    public int method2(List<List<String>> items, String ruleKey, String ruleValue) {
+        int count=0;
+        int ch = ruleKey.equals("type") ? 0 : ruleKey.equals("color") ? 1 : ruleKey.equals("name") ? 2 : -1;
+        for(List list : items){
+            if(list.get(ch).equals(ruleValue))
+                count++;
+        }
+        return count;
+    }
+}
