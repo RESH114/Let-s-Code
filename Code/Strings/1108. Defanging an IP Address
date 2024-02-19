@@ -1,3 +1,8 @@
+/*
+Example 1:
+Input: address = "1.1.1.1"
+Output: "1[.]1[.]1[.]1"
+*/
 class Solution {
   //Time Complexity:O(n)+1ms
     public String method1(String address) {
