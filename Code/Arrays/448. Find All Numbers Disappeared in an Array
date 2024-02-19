@@ -1,0 +1,36 @@
+/*
+Example 1:
+
+Input: nums = [4,3,2,7,8,2,3,1]
+Output: [5,6]
+Example 2:
+
+Input: nums = [1,1]
+Output: [2]
+*/
+
+class Solution {
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        int i=0;
+        while(i<nums.length){
+            int index = nums[i]-1;
+            if(nums[i] != nums[index]){
+                swap(nums,i,index);
+            }else{
+                i++;
+            }
+        }
+        List<Integer> list = new ArrayList<>();
+        for(int k=0;k<nums.length;k++){
+            if(nums[k] != k+1){
+                list.add(k+1);
+            }
+        }
+        return list;
+    }
+    public void swap(int[] nums,int a,int b){
+        int temp = nums[a];
+        nums[a] = nums[b];
+        nums[b] = temp;
+    }
+}
