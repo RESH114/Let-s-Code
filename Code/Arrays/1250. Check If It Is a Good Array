@@ -1,0 +1,21 @@
+/*
+Example 1:
+Input: nums = [12,5,7,23]
+Output: true
+Explanation: Pick numbers 5 and 7.
+5*3 + 7*(-2) = 1
+*/
+class Solution {
+    public boolean isGoodArray(int[] nums) {
+        int gcd = nums[0];
+        for(int i=1;i<nums.length;i++){
+            gcd = getGCD(gcd,nums[i]);          
+        }
+        return gcd == 1;
+    }
+    public int getGCD(int a,int b){
+        if(a == 0)
+            return b;
+        return getGCD(b%a,a);
+    }
+}
