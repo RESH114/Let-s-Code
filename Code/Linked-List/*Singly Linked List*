@@ -1,7 +1,7 @@
 /*Singly Linked List:
 * Example : 1->2->3->4->5->null
 * */
-public class LinkedPractice {
+public class S {
     private class Node{
         int val;
         Node next;
