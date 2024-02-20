@@ -1,0 +1,96 @@
+/*Singly Linked List:
+* Example : 1->2->3->4->5->null
+* */
+public class LinkedPractice {
+    private class Node{
+        int val;
+        Node next;
+        Node(int val){
+            this.val = val;
+        }
+    }
+    Node head;
+    Node tail;
+    int length;
+    public void insertBegin(int val){
+        Node node = new Node(val);
+        if(head == null){
+            head = node;
+            tail = node;
+        }else{
+            node.next = head;
+            head = node;
+        }
+        length++;
+    }
+    public void insertLast(int val){
+        Node node = new Node(val);
+        if(head == null){
+            head = node;
+            tail = node;
+        }else{
+            tail.next = node;
+            tail = node;
+        }
+        length++;
+    }
+    public void insertAtPosition(int val,int pos){
+        if(pos>length){
+            return;
+        }else if(pos == 0){
+            insertBegin(val);
+            return;
+        }else if(pos == length){
+            insertLast(val);
+            return;
+        }else{
+            Node node = new Node(val);
+            Node temp = head;
+            for(int i=1;i<=pos-1;i++){
+                temp = temp.next;
+            }
+            node.next = temp;
+            temp.next = node;
+            length++;
+        }
+    }
+    public void deleteBegin(){
+        if(head == null){
+            tail = null;
+            length--;
+            return;
+        }
+        head = head.next;
+    }
+    public void deleteLast(){
+        Node temp = head;
+        for(int i=0;i<length-1;i++){
+            temp = temp.next;
+        }
+        temp.next = null;
+        length--;
+    }
+    public void deleteMiddle(int pos){
+        if(pos == 0){
+            deleteBegin();
+            return;
+        }else if(pos == length){
+            deleteLast();
+            return;
+        }else{
+            Node temp =head;
+            for(int i=1;i<pos-1;i++){
+                temp = temp.next;
+            }
+            temp.next = temp.next.next;
+        }
+    }
+    public void display(){
+        Node temp = head;
+        while(temp != null){
+            System.out.print(temp.val + "->");
+            temp = temp.next;
+        }
+        System.out.println("END");
+    }
+}
