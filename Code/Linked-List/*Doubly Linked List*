@@ -1,0 +1,113 @@
+/*Doubly Linked List:
+* Example : null<->1<->2<->3<->4<->5<->null
+* */
+public class DoublyLinkedList {
+    private class Node{
+        int val;
+        Node next;
+        Node prev;
+        Node(int val){
+            this.val = val;
+            this.next = null;
+            this.prev = null;
+        }
+    }
+    Node head;
+    Node tail;
+    int length;
+    public void insertBegin(int val){
+        Node node = new Node(val);
+        if(head == null){
+            head = node;
+            tail = node;
+        }else{
+            node.next = head;
+            head.prev = node;
+            head = node;
+        }
+        length++;
+    }
+    public void insertLast(int val){
+        Node node = new Node(val);
+        if(head == null){
+            head = node;
+            tail = node;
+        }else{
+            node.prev = tail;
+            tail.next = node;
+            tail = node;
+        }
+        length++;
+    }
+    public void insertAtPosition(int val,int pos){
+        if(pos>length){
+            return;
+        }else if(pos == 0){
+            insertBegin(val);
+            return;
+        }else if(pos == length){
+            insertLast(val);
+            return;
+        }else{
+            Node node = new Node(val);
+            Node temp = head;
+            for(int i=1;i<=pos-1;i++){
+                temp = temp.next;
+            }
+            node.next = temp.next;
+            node.prev = temp;
+            temp.next.prev = node;
+            temp.next = node;
+            length++;
+        }
+    }
+    public void deleteBegin(){
+        if(head == null){
+            tail = null;
+            return;
+        }else{
+            head = head.next;
+            if(head!= null)  head.prev = null;
+            else tail = null;
+            length--;
+        }
+
+    }
+    public void deleteLast(){
+        if(tail == null) {
+            head =null;
+            return;
+        }else {
+            tail = tail.prev;
+            if(tail!=null) tail.next = null;
+            else head =null;
+            length--;
+        }
+    }
+    public void deleteMiddle(int pos){
+        if(pos>length) return;
+        else if(pos == 0){
+            deleteBegin();
+            return;
+        }else if(pos == length){
+            deleteLast();
+            return;
+        }else{
+            Node temp =head;
+            for(int i=1;i<=pos;i++){
+                temp = temp.next;
+            }
+            temp.prev.next = temp.next;
+            temp.next.prev = temp.prev;
+            length--;
+        }
+    }
+    public void display(){
+        Node temp = head;
+        while(temp != null){
+            System.out.print(temp.val + "->");
+            temp = temp.next;
+        }
+        System.out.println("END");
+    }
+}
