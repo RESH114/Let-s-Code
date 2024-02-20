@@ -57,10 +57,10 @@ public class S {
     public void deleteBegin(){
         if(head == null){
             tail = null;
-            length--;
             return;
         }
         head = head.next;
+        length--;
     }
     public void deleteLast(){
         Node temp = head;
