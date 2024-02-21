@@ -1,0 +1,36 @@
+/*
+Example 1:
+Input: nums = [5,7,7,8,8,10], target = 8
+Output: [3,4]
+*/
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        int result[] = {-1,-1};
+        int left = binarySearch(nums,target,true);
+        int right = binarySearch(nums,target,false);
+        result[0]=left;
+        result[1]=right;
+        return result;
+    }
+    public int binarySearch(int nums[],int target,boolean val){
+        int low = 0;
+        int high = nums.length-1;
+        int index=-1;
+        while(low<=high){
+            int mid = low + (high-low)/2;
+            if(nums[mid]>target){
+                high = mid-1;
+            }else if(nums[mid]<target){
+                low=mid+1;
+            }else{
+                index=mid;
+                if(val){
+                    high=mid-1;
+                }else{
+                    low=mid+1;
+                }
+            }
+        }
+        return index;
+    }
+}
