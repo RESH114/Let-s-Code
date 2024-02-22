@@ -1,0 +1,27 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       int n1 = sc.nextInt();
+       int n2 = sc.nextInt();
+       for(int i=n1;i<=n2;i++){
+           findSquare(i);
+       }
+    }
+    public static void findSquare(int n){
+        if(n<0){
+            return;
+        }
+        int power=0,result=0;
+        int temp = n;
+        while(temp>0){
+            if((temp&1)>0){
+                result += (n<<power);
+            }
+            power++;
+            temp=temp>>1;
+        }
+        System.out.println(result);
+    }
+    
+}
