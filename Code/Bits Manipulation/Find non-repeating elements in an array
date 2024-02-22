@@ -1,0 +1,18 @@
+/*
+Input:
+arr - > {2,3,6,4,2,3,6}
+Output:
+->4
+Explanation:
+4 is non repeating element
+*/,
+class Main {
+    public static void main(String[] args) {
+        int arr[] = {2,3,4,2,4};
+        int unique=0;
+        for(int i:arr){
+            unique^=i;
+        }
+        System.out.println( " -> " + unique);
+    }
+}
