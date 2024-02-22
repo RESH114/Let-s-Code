@@ -1,0 +1,28 @@
+/*
+Input: N = 4
+Output: 5
+Explanation:
+For numbers from 1 to 4.
+For 1: 0 0 1 = 1 set bits
+For 2: 0 1 0 = 1 set bits
+For 3: 0 1 1 = 2 set bits
+For 4: 1 0 0 = 1 set bits
+Therefore, the total set bits is 5.
+*/
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a = sc.nextInt();
+        int count=0,set=0;
+        for(int i=1;i<=a;i++){
+            set=i;
+           while(set>0){
+               count += (set&1);
+               set=set>>1;
+           }
+        }
+        System.out.println(count);
+        
+    }
+}
