@@ -1,0 +1,32 @@
+/*
+Input : 
+s = "abc"
+Output: 
+a ab abc ac b bc c
+Explanation : 
+There are a total 7 number of subsequences possible 
+for the given string, and they are mentioned above 
+in lexicgraphically sorted order.
+*/
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String str = "abc";
+        ArrayList<String> result = subSequence("",str);
+        Collections.sort(result);
+        System.out.println(result);
+    }
+    public static ArrayList<String> subSequence(String p,String str){
+        if(str.isEmpty()){
+            ArrayList<String> list = new ArrayList<>();
+            list.add(p);
+            return list;
+        }
+        char ch = str.charAt(0);
+        ArrayList<String> left = subSequence(p+ch,str.substring(1));
+        ArrayList<String> right  =subSequence(p,str.substring(1));
+        left.addAll(right);
+        return left;
+    }
+}
