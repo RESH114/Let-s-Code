@@ -1,0 +1,21 @@
+/*
+Input: 
+N = 8
+Output: 
+YES
+Explanation:
+8 is equal to 2 raised to 3 (23 = 8).
+*/
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a = sc.nextInt();
+        if( (a&(a-1)) == 0){
+            System.out.println(a + " is power of 2");
+        }else{
+            System.out.println(a + " is not power of 2");
+        }
+        
+    }
+}
