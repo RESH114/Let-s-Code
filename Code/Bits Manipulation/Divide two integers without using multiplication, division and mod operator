@@ -1,0 +1,27 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       int n1 = sc.nextInt();
+       int n2 = sc.nextInt();
+       int res = divide(n1,n2);
+       System.out.println(res);
+    }
+    public static int divide(int n1,int n2){
+        if(n2<0)
+            return 0;
+        if(n1==Integer.MIN_VALUE && n2==-1){
+            return Integer.MAX_VALUE;
+        }
+        int sign = (n1<0)^(n2<1)?-1:1;
+        long divi = Math.abs((long)n1);
+        long divs = Math.abs((long)n2);
+        int res = 0;
+        while(divi>=divs){
+            divi-=divs;
+            res++;
+        }
+        return res;
+    }
+    
+}
