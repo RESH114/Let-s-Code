@@ -1,0 +1,27 @@
+/*
+Input: A = 10, B = 20
+Output: 4
+Explanation:
+A  = 01010
+B  = 10100
+As we can see, the bits of A that need 
+to be flipped are 01010. If we flip 
+these bits, we get 10100, which is B.
+*/
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a = sc.nextInt();
+        int b= sc.nextInt();
+        int count=0;
+        int flipped = a^b;
+        while(flipped!=0){
+            int res = (flipped&-flipped);
+            flipped-=res;
+            count++;
+        }
+        System.out.println(count);
+        
+    }
+}
