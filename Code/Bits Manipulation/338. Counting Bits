@@ -1,0 +1,25 @@
+/*
+Example 1:
+Input: n = 2
+Output: [0,1,1]
+Explanation:
+0 --> 0
+1 --> 1
+2 --> 10
+*/
+class Solution {
+    public int[] countBits(int n) {
+        int res[] = new int[n+1];
+        int set,count;
+        for(int i=0;i<=n;i++){
+            set=i;
+            count=0;
+            while(set>0){
+                count = count + (set&1);
+                set=set>>1;
+            }
+            res[i] = count;
+        }
+        return res;
+    }
+}
