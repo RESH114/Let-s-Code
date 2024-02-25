@@ -1,0 +1,14 @@
+/*
+Example 1:
+Input: a = "11", b = "1"
+Output: "100"
+*/
+import java.math.*;
+class Solution {
+    public String addBinary(String a, String b) {
+       BigInteger x = new BigInteger(a,2);
+       BigInteger y = new BigInteger(b,2);
+       BigInteger res = x.add(y);
+       return res.toString(2);        
+    }
+}
