@@ -1,0 +1,59 @@
+import java.util.*;
+
+public class BinarySearchTrees {
+    private class Node {
+        int data;
+        Node left;
+        Node right;
+        Node(int data) {
+            this.data = data;
+            this.left = null;
+            this.right = null;
+        }
+        public int getValue(){
+            return data;
+        }
+    }
+    Node root;
+
+    public void insert(int value) {
+        root = insert(value, root);
+    }
+    public Node insert(int value, Node node) {
+        if(node == null){
+            node = new Node(value);
+            return node;
+        }
+        if(value < node.data){
+            node.left = insert(value,node.left);
+        }
+        if(value>node.data) {
+            node.right = insert(value, node.right);
+        }
+        return node;
+    }
+    public void display(){
+        display(root,"Root Node:");
+    }
+    public void display(Node node,String details){
+        if(node == null){
+            return;
+        }
+        System.out.println(details + node.data);
+        display(node.left,"Left Child of "+ node.data + " :");
+        display(node.right,"Right Child of "+ node.data + " :");
+    }
+    public static void main(String ar[]) {
+        Scanner sc = new Scanner(System.in);
+        BinarySearchTrees tree = new BinarySearchTrees();
+        System.out.println("Binary Search Tree");
+        System.out.println("Enter the value or type stop: ");
+        while(sc.hasNextInt()){
+            System.out.println("Enter the value or type stop: ");
+            int value = sc.nextInt();
+            tree.insert(value);
+        }
+        tree.display();
+        sc.close();
+    }
+}
