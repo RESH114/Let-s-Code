@@ -1,0 +1,74 @@
+import java.util.*;
+
+public class BinaryTrees {
+    private class Node {
+        int data;
+        Node left;
+        Node right;
+
+        Node(int data) {
+            this.data = data;
+            this.left = null;
+            this.right = null;
+        }
+    }
+    Node root;
+    public void insert(Scanner sc) {
+        System.out.println("Enter the root node: ");
+        int value = sc.nextInt();
+        root = new Node(value);
+        insert(sc, root);
+    }
+    public Node insert(Scanner sc, Node node) {
+        System.out.println("Do you want to enter in left for " + node.data + "(type true if yes):");
+        boolean left = sc.nextBoolean();
+        if (left) {
+            System.out.println("Enter the value for " + node.data + ":");
+            int value = sc.nextInt();
+            node.left = new Node(value);
+            node.left = insert(sc, node.left);
+        }
+        System.out.println("Do you want to enter in right for " + node.data + "(type true if yes):");
+        boolean right = sc.nextBoolean();
+        if (right) {
+            System.out.println("Enter the value for " + node.data + ":");
+            int value = sc.nextInt();
+            node.right = new Node(value);
+            node.right = insert(sc, node.right);
+        }
+        return node;
+    }
+    public void inOrder(Node node) {
+        if (node != null) {
+            inOrder(node.left);
+            System.out.print(node.data + " ");
+            inOrder(node.right);
+        }
+    }
+    public void postOrder(Node node) {
+        if (node != null) {
+            postOrder(node.left);
+            postOrder(node.right);
+            System.out.print(node.data + " ");
+        }
+    }
+    public void preOrder(Node node) {
+        if (node != null) {
+            System.out.print(node.data + " ");
+            preOrder(node.left);
+            preOrder(node.right);
+        }
+    }
+    public static void main(String ar[]) {
+        Scanner sc = new Scanner(System.in);
+        BinaryTrees tree = new BinaryTrees();
+        System.out.println("BinaryTree");
+        tree.insert(sc);
+        System.out.println("In-order traversal:");
+        tree.inOrder(tree.root);
+        System.out.println("Post-order traversal:");
+        tree.postOrder(tree.root);
+        System.out.println("Pre-order traversal:");
+        tree.preOrder(tree.root);
+    }
+}
