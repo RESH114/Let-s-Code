@@ -1,0 +1,32 @@
+public class Solution {
+    public static Node flattenLinkedList(Node head) {
+        //Write your code here
+        Node temp=head.next;
+        while(temp!=null){
+            Node second = temp;
+            temp = temp.next;
+            second.next = null;
+            head = merge(head,second);
+        }
+        return head;
+    }
+    public static Node merge(Node l1,Node l2){
+        Node head = new Node(0);
+        Node curr = head;
+        while(l1!=null && l2!=null){
+            if(l1.data<l2.data){
+                curr.child=l1;
+                l1=l1.child;
+            }else{
+                curr.child=l2;
+                l2=l2.child;
+            }
+            curr=curr.child;
+        }
+        if(l1!=null)
+            curr.child=l1;
+        if(l2!=null)
+            curr.child=l2;
+        return head.child;
+    }
+}
