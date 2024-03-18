@@ -245,7 +245,7 @@ public class Sorting {
     //Time Complexity : O(nlogn)
     //Space Complexity : O(nlogn)
     public static void quickSort(int arr[],int low,int high){
-        if(low<=high){
+        if(low>=high){
             return;
         }
         int s = low,e=high;
