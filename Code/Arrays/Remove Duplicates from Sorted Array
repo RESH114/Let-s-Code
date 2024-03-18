@@ -1,0 +1,21 @@
+/*
+For example:
+'n' = 5, 'arr' = [1 2 2 2 3].
+The new array will be [1 2 3].
+So our answer is 3.
+*/
+public class Solution {
+    public static int removeDuplicates(int[] arr,int n) {
+        // Write your code here.
+        int k=0;
+        for(int i=1;i<n;i++){
+            if(arr[i] != arr[k]){
+                k++;
+                arr[k] = arr[i];
+            }
+        }
+        return k+1;
+
+        
+    }
+}
