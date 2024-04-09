@@ -1,0 +1,16 @@
+import java.util.Arrays;
+
+public class Solution {
+    public static int[] printNos(int x) {
+        int result[] = new int[x];
+        helper(result,1,x,0);
+        return result;
+    }
+    public static void helper(int[] result,int start,int end,int index){
+        if(start>end){
+            return;
+        }
+        result[index++] = start;
+        helper(result,++start,end,index);        
+    }
+}
