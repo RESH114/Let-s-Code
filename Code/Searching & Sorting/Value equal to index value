@@ -1,0 +1,25 @@
+/*
+Input: arr[] = [15, 2, 45, 4 , 7]
+Output: 2 , 4
+Explanation: 
+Here, arr[2] = 2 exists here.
+and arr[4] = 4 exists here.
+*/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+       int  arr[] = {15, 2, 3, 4 , 7};
+       System.out.println(cyclic(arr));
+       
+	}
+	public static ArrayList<Integer> cyclic(int arr[]){
+	    ArrayList<Integer> ar = new ArrayList<>();
+	   for(int i=0;i<arr.length;i++){
+	       if(arr[i] == i+1){
+	           ar.add(arr[i]);
+	       }
+	   }
+	   return ar;
+	}
+}
