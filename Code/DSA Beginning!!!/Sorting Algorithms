@@ -44,7 +44,18 @@ public class Sorting {
             }
         }
     }
-
+    //Cyclic Sort
+    public static void cyclic(int arr[]){
+	    int i=0;
+	    while(i<arr.length){
+	        int ind = arr[i]-1;
+	        if(arr[i] != arr[ind]){
+	            swap(arr,i,ind);
+	        }else{
+	            i++;
+	        }
+	    }
+	}
     //Insertion Sorting
     // Time Complexity : O(N^2)
     // Space Complexity : O(1)
