@@ -1,0 +1,25 @@
+/*
+Input :
+N = 9
+Output:
+2
+Explanation:
+1 and 4 are the only Perfect Squares
+less than 9. So, the Output is 2.
+*/
+
+import java.lang.Math;
+public class Main
+{
+	public static void main(String[] args) {
+		int N = 20;
+		System.out.println(sqrt(N));
+	}
+	public static int sqrt(int n){
+	    int count = (int)Math.sqrt(n);
+	    if(count*count == n){
+	        return count-1;
+	    }
+	    return count;
+	}
+}
