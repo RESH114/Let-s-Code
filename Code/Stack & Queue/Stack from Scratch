@@ -1,0 +1,43 @@
+
+public class Main
+{
+	public static void main(String[] args) {
+		Stack s = new Stack(5);
+		s.push(1);
+        s.push(2);
+        s.push(3);
+        System.out.println(s.pop());
+        System.out.println(s.pop());
+	}
+	
+}
+class Stack{
+    int size;
+    int stack[];
+    int top;
+    Stack(int size){
+        this.size = size;
+        stack = new int[size];
+        top =-1;
+    }
+    public void push(int val){
+        if(!isFull()){
+            stack[++top] = val;
+        }else{
+            System.out.println("Stack is full");
+        }
+    }
+    public int pop(){
+        if(!isEmpty()){
+            return stack[top--];
+        }else{
+            return -1;   
+        }
+    }
+    public boolean isEmpty(){
+        return top == -1;
+    }
+    public boolean isFull(){
+        return top == size-1;
+    }
+}
