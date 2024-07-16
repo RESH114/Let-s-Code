@@ -1,0 +1,28 @@
+
+class Solution
+{
+    static boolean ispar(String x)
+    {
+        Stack<Character> s = new Stack<>();
+        for(char ch:x.toCharArray()){
+            if(ch == '(' || ch == '{' || ch == '['){
+                s.push(ch);
+            }
+            else if(ch == ')' || ch == '}' || ch == ']'){
+                if(s.isEmpty()){
+                    return false;
+                }
+                if(!isMatch(ch,s.pop())){
+                    return false;
+                }
+            }
+        }
+        if(!s.isEmpty()){
+            return false;
+        }
+        return true;
+    }
+    static boolean isMatch(char ch,char p){
+        return (ch == ')' && p == '(') || (ch == '}' && p == '{') || (ch == ']' && p == '[');
+    }
+}
