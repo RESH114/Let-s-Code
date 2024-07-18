@@ -1,0 +1,23 @@
+class Solution
+{
+    public String FirstNonRepeating(String A)
+    {
+        Queue<Character> q = new LinkedList<>();
+        final int CHAR_MAX = 256;
+        char count[] = new char[CHAR_MAX];
+        StringBuilder str = new StringBuilder();
+        for(char c:A.toCharArray()){
+            count[c]++;
+            q.add(c);
+            while(!q.isEmpty() && count[q.peek()]>1){
+                q.poll();
+            }
+            if(!q.isEmpty()){
+                str.append(q.peek());
+            }else{
+                str.append("#");
+            }
+        }
+        return str.toString();
+    }
+}
