@@ -1,0 +1,25 @@
+class Solution {
+    static int minValue(String s, int k) {
+        int count[] = new int[26];//26 - only lowercase alphabets
+        for(char ch:s.toCharArray()){
+            count[ch-'a']++;
+        }
+        PriorityQueue<Integer> q = new PriorityQueue<>((a,b) -> b-a);
+        for(int i=0;i<26;i++){
+            if(count[i]>0){
+                q.add(count[i]);
+            }
+        }
+        while(k-- > 0){
+            int temp = q.poll();
+            temp--;
+            q.add(temp);
+        }
+        int sum=0;
+        while(!q.isEmpty()){
+            int val = q.poll();
+            sum += (val*val);
+        }
+        return sum;
+    }
+}
