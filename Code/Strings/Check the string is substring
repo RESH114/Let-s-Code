@@ -1,0 +1,16 @@
+/*
+Input:
+s = GeeksForGeeks, x = For
+Output: 5
+Explanation: For is present as substring
+in GeeksForGeeks from index 5 (0 based
+indexing).
+*/
+class GfG
+{
+    //Function to locate the occurrence of the string x in the string s.
+    int strstr(String s, String x)
+    {
+       return s.contains(x)?s.indexOf(x):-1;
+    }
+}
