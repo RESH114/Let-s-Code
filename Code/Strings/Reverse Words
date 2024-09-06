@@ -1,0 +1,21 @@
+/*
+welcome coding
+coding welcome
+*/
+import java.lang.*;
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		String s="welcome to coding!";
+		String arr[] = s.split(" ");
+		StringBuilder str = new StringBuilder();
+		for(int i=arr.length-1;i>=0;i--){
+		    str.append(arr[i]);
+		    str.append(" ");
+		}
+		s = str.toString().trim();
+		System.out.println(s);
+	}
+	
+}
