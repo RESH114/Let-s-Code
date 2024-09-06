@@ -1,0 +1,27 @@
+class Solution{
+    static boolean match(String wild, String pattern)
+    {
+       int a = wild.length();
+       int b = pattern.length();
+       if(a == 0 && b == 0){
+           return true;
+       }
+       if(a>1 && wild.charAt(0)=='*'){
+           int i=0;
+           while(i+1<a && wild.charAt(i+1)=='*'){
+               i++;
+           }
+           wild = wild.substring(i);
+       }
+       if(a>1 && wild.charAt(0)=='*' && b==0){
+           return false;
+       }
+       if((a>1 && wild.charAt(0)=='?') || (a !=0 && b !=0 && wild.charAt(0) == pattern.charAt(0))){
+           return match(wild.substring(1),pattern.substring(1));
+       }
+       if(a>0 && wild.charAt(0)=='*'){
+           return match(wild.substring(1),pattern) || match(wild,pattern.substring(1));
+       }
+       return false;
+    }
+}
