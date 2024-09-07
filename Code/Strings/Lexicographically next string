@@ -1,0 +1,28 @@
+
+/*
+Input : geeks
+Output : geekt
+The last character 's' is changed to 't'.
+*/
+public class Main
+{
+	public static void main(String[] args) {
+		String str = "reshmaa";
+		System.out.println(lexicographically(str));
+	}
+	public static String lexicographically(String str){
+	    if(str == ""){
+	        return "a";
+	    }
+	    int i = str.length()-1;
+	    while(str.charAt(i) == 'z' &&  i>=0){
+	        i--;
+	    }
+	    if(i==-1){
+	        str = str+'a';
+	    }else{
+	        str = str.substring(0,i) + (char)((int)str.charAt(i)+1) + str.substring(i+1);
+	    }
+	    return str;
+	}
+}
