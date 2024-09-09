@@ -1,0 +1,11 @@
+public class Main
+{
+	public static void main(String[] args) {
+	    String s = "reshmaa";
+	    if(s.equals(s.toUpperCase())){
+	        System.out.println(s.toLowerCase());
+	    }else{
+	        System.out.println(s.toUpperCase());
+	    }
+	}
+}
