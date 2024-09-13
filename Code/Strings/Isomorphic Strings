@@ -1,0 +1,39 @@
+/*
+Example 1:
+
+Input: s = "egg", t = "add"
+Output: true
+Example 2:
+
+Input: s = "foo", t = "bar"
+Output: false
+
+*/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    String s = "egg";
+	    String t = "add";
+	    System.out.println(isomorphic(s,t));
+	}
+	public static boolean isomorphic(String s1,String s2){
+	    if(s1.length() != s2.length()){
+	        return false;
+	    }
+	    char[] s = new char[256];
+	    char[] t = new char[256];
+	    for(int i=0;i<s1.length();i++){
+	        char a = s1.charAt(i);
+	        char b = s2.charAt(i);
+	        if(s[a] == 0 && t[b] == 0){
+	            s[a] = b;
+	            t[b] = a;
+	        }else if(s[a] != b || t[b] != a){
+	            return false;
+	        }
+	    }
+	    return true;
+ 	}
+	
+}
