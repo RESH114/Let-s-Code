@@ -1,0 +1,20 @@
+/*
+Input: n = 11111111111111111111111111111101
+Output: 31
+*/
+
+public class Main
+{
+	public static void main(String[] args) {
+		int n = 0b11111111111111111111111111111101;
+		countBits(n);	
+	}
+	public static void countBits(int n){
+	    int total = 0;
+		while(n!=0){
+		    total += n & 1;
+		    n>>>=1;
+		}
+		System.out.println(total);
+	}
+}
