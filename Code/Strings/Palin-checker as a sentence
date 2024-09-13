@@ -1,0 +1,24 @@
+/*
+Input: s = "Do geese see God"
+Output: true
+Explanation: "dogeeseseegod" is a palindrome.
+*/
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		String s = "Do geese see God";
+		System.out.println(palin(s));
+		
+	}
+	public static boolean palin(String s){
+	    StringBuilder result = new StringBuilder();
+	    for(char c:s.toCharArray()){
+	        if(Character.isLetterOrDigit(c)){
+	            result.append(Character.toLowerCase(c));
+	        }
+	    }
+	    return result.toString().equals(result.reverse().toString());
+	}
+}
