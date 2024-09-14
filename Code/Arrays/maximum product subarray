@@ -1,0 +1,27 @@
+/*
+Input: arr[] = {6, -3, -10, 0, 2}, n = 5
+Output: 180
+Explanation:  The subarray [6, -3, -10] gives max product as 180.
+*/
+class Solution {
+    // Function to find maximum product subarray
+    long maxProduct(int[] arr, int n) {
+        // code here
+        long max = Long.MIN_VALUE;
+        long leftToRight=1;
+        long rightToLeft=1;
+        for(int i=0;i<n;i++){
+            if(leftToRight == 0){
+                leftToRight=1;
+            }
+            if(rightToLeft == 0){
+                rightToLeft=1;
+            }
+            leftToRight *= arr[i];
+            int j = n-i-1;
+            rightToLeft *= arr[j];
+            max = Math.max(leftToRight,Math.max(rightToLeft,max));
+        }
+        return max;
+    }
+}
