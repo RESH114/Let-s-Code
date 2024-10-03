@@ -25,3 +25,21 @@ class Solution {
         return max;
     }
 }
+
+
+Easy Alternative Way:
+class Solution {
+    public int maxProduct(int[] nums) {
+        if(nums.length == 1){
+            return nums[0];
+        }
+        int min=0,max=0,result=0;
+        for(int i:nums){
+            int temp=Math.max(i,Math.max(min*i,max*i));
+            min = Math.min(i,Math.min(max*i,min*i));
+            max =temp;
+            result=Math.max(result,max);
+        }
+        return result;
+    }
+}
