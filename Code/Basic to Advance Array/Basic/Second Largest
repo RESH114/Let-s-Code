@@ -1,0 +1,22 @@
+
+public class Main
+{
+	public static void main(String[] args) {
+		int arr[] = {10, 20, 30, 40, 50};
+		int n = arr.length-1;
+		System.out.println(helper(arr,n));
+	}
+	public static int helper(int arr[],int k){
+	    int first=-1,second=-1;
+	    for(int i:arr){
+	        if(i>first){
+	            second = first;
+	            first = i;
+	        }
+	        else if(first>i && i>second){
+	            second =i;
+	        }
+	    }
+	    return second;
+	}
+}
