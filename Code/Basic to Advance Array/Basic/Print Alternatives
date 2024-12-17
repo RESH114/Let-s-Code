@@ -1,0 +1,19 @@
+/*
+Input: arr[] = [10, 20, 30, 40, 50]
+Output: 10 30 50
+*/
+public class Main
+{
+	public static void main(String[] args) {
+		int arr[] = {10, 20, 30, 40, 50};
+		int n = arr.length-1;
+		helper(arr,0,n);
+	}
+	public static void helper(int arr[],int a,int b){
+	    if(a > b){
+	        return;
+	    }
+	    System.out.println(arr[a]);
+	    helper(arr,a+2,b);
+	}
+}
