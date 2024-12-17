@@ -1,0 +1,27 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		int arr[] = {10, 20, 30, 40, 50};
+		int n = arr.length-1;
+		System.out.println(Arrays.toString(helper(arr,n)));
+	}
+	public static int[] helper(int arr[],int k){
+	    int first=-1,second=-1,third=-1;
+	    for(int i:arr){
+	        if(i>first){
+	            third = second;
+	            second = first;
+	            first = i;
+	        }
+	        else if(first!=i && i>second){
+	            third = second;
+	            second =i;
+	        }
+	        else if(first!=i && second!=i && i>third){
+	            third=i;
+	        }
+	    }
+	    return new int[]{first,second,third};
+	}
+}
