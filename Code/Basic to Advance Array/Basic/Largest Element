@@ -1,0 +1,16 @@
+
+public class Main
+{
+	public static void main(String[] args) {
+		int arr[] = {10, 20, 30, 40, 50};
+		int n = arr.length-1;
+		System.out.println(helper(arr,0));
+	}
+	public static int helper(int arr[],int k){
+	    if(k == arr.length-1){
+	        return arr[k];
+	    }
+	    int max = helper(arr,k+1);
+	    return Math.max(max,arr[k]);
+	}
+}
