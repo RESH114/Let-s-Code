@@ -1,0 +1,19 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		int[] arr = { 20, 28, 45, 89, 89, 90 };
+		int n = arr.length-1;
+		if(helper(arr,n)){
+		    System.out.println("Yes");
+		}else{
+		    System.out.println("No");
+		}
+	}
+	public static boolean helper(int arr[],int n){
+	   if(n==1 || n==0){
+	       return true;
+	   }
+	   return arr[n-1]>=arr[n-2] && helper(arr,n-1);
+	}
+}
