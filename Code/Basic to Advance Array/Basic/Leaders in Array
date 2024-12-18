@@ -1,0 +1,21 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		int[] arr = { 16, 17, 4, 3, 5, 2 };
+		int n = arr.length-1;
+		helper(arr,n);
+	}
+	public static void helper(int arr[],int n){
+	    ArrayList<Integer> result = new ArrayList<>();
+	    int maxRight = arr[n];
+	    result.add(maxRight);
+	    for(int i=n-1;i>=0;i--){
+	        if(arr[i]>maxRight){
+	            maxRight = arr[i];
+	            result.add(maxRight);
+	        }
+	    }
+	    System.out.println(result);
+	}
+}
