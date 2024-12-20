@@ -1,0 +1,37 @@
+/*
+Input: arr[] = {10, 20, 35, 50}, target =70
+Output:  Yes
+Explanation : There is a pair (20, 50) with given target.
+*/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		int arr[] = { 0, -1, 2, -3, 1 };
+		int n = arr.length;
+		int target = -2;
+		if(twoSum(arr,n,target)){
+		    System.out.println("true");
+		}else{
+		    System.out.println("false");
+		}
+	}
+	public static boolean twoSum(int arr[],int n,int target){
+	    Arrays.sort(arr);
+	    int low=0;
+	    int high=n-1;
+	    while(low<high){
+	        int sum = arr[low]+arr[high];
+	        if(sum == target){
+	            return true;
+	        }else if(sum < target){
+	            low++;
+	        }else{
+	            high--;
+	        }
+	    }
+	    return false;
+	}
+	
+	 
+}
