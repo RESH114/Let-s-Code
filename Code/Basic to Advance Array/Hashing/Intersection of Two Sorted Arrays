@@ -1,0 +1,40 @@
+/*
+Input: a[] = {1, 2, 3}, b[] = {1, 2, 3}
+Output: {1, 2, 3}
+Explanation: All elements are common
+*/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    int arr1[] = { 3, 5, 10, 10, 10, 15, 15, 20 };
+	    int arr2[] = { 5, 10, 10, 15, 30 };
+        result(arr1,arr2);
+	    System.out.println();
+	}
+	public static void result(int arr1[],int arr2[]){
+	    int n = arr1.length;
+	    int m = arr2.length;
+	    List<Integer> result = new ArrayList<>();
+	    int i=0,j=0;
+	    while(i<n && j<m){
+	        if(i>0 && arr1[i-1] == arr1[i]){
+	            i++;
+	            continue;
+	        }
+	        if(arr1[i] <arr2[j]){
+	            i++;
+	        }else if(arr1[i] > arr2[j]){
+	            j++;
+	        }else{
+	            result.add(arr1[i]);
+	            i++;
+	            j++;
+	        }
+	    }
+	    System.out.println(result);
+	   
+	}
+	
+	 
+}
